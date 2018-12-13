@@ -1,0 +1,22 @@
+{
+  "name": "brainceek",
+  "version": "1.0.0",
+  "description": "Hi, new file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomasliu244/Brainceek.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomasliu244/Brainceek/issues"
+  },
+  "homepage": "https://github.com/thomasliu244/Brainceek#readme",
+  "dependencies": {
+    "server": "^1.0.18"
+  }
+}
