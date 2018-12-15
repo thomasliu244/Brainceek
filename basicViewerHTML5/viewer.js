@@ -185,6 +185,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             }
         },
 
+
         /* The following functions implement the ConnectionCallback interface. */
 
         disconnected: function (viewer, reason, flags) {
