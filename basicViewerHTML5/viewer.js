@@ -46,17 +46,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     /* For Cloud connections, hard-code the Cloud address for the Viewer, for example:
      * LxygGgSrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRsVnXoDoue4Xqm
      */
-    var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRDrzSmbSx5qLWfr";
+    var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRKDZ3LZZjs2Zrt7";
 
     /* Hard-code the Cloud password associated with this Cloud address, for example:
      * KMDgGgELSvAdvscgGfk2
      */
-    var localCloudPassword = "CYOIG0-N.qMc3HshL9Ma";
+    var localCloudPassword = "CNo12IBImk1Ki2Ib2hee";
 
     /* Hard-code the Cloud address of the Server (peer) to connect to, for example:
      * LxyDgGgrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRydf9ZczNo13BcD
      */
-    var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
+    var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRQ2XVPjdmrot5jn";
 
     /* The application instance. */
     window.App = {};
