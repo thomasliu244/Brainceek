@@ -1,2 +1,1 @@
-const server = require('server');
-const { get, post } = server.router;
+require("./app/server/server.js");

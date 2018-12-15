@@ -4,7 +4,8 @@
   "description": "Hi, new file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/thomasliu244/Brainceek#readme",
   "dependencies": {
     "server": "^1.0.18"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0"
   }
 }
