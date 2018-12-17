@@ -46,21 +46,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    */
   // var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRKDZ3LZZjs2Zrt7";
   var localCloudAddress =
-    "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRKDZ3LZZjs2Zrt7";
+    "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRDrzSmbSx5qLWfr";
 
   /* Hard-code the Cloud password associated with this Cloud address, for example:
    * KMDgGgELSvAdvscgGfk2
    */
 
   // var localCloudPassword = "CNo12IBImk1Ki2Ib2hee";
-  var localCloudPassword = "CNo12IBImk1Ki2Ib2hee";
+  var localCloudPassword = "CYOIG0-N.qMc3HshL9Ma";
 
   /* Hard-code the Cloud address of the Server (peer) to connect to, for example:
    * LxyDgGgrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRydf9ZczNo13BcD
    */
   // var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
   var peerCloudAddress =
-    "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRQ2XVPjdmrot5jn";
+    "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
 
   /* The application instance. */
   window.App = {};
@@ -365,37 +365,26 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
            advantage of hardware acceleration routines provided in most browsers. */
       updateCanvas: function() {
         /* Obtain the useable dimensions for presenting the framebuffer. */
-        var actualWidth = (3 / 4) * $(window).width();
-        var actualHeight = $(window).height() - $("#desktopBarFrame").height();
+        var actualWidth = $("#framebuffer").width();
+        var actualHeight = $("#framebuffer").height();
+        console.log(actualWidth,actualHeight);
         // $('#desktop').width(actualWidth);
         // $('#desktop').height(actualHeight);
 
         /* Calculate required scaling factor to fit viewer's framebuffer in
                the available space by resizing the canvas.  Note that the aspect
                ratio of the server's framebuffer will be preserved by this adjustment. */
-        var scaleX = actualWidth / this.fbWidth;
-        var scaleY = actualHeight / this.fbHeight;
+        this.scaleX = actualWidth / this.fbWidth;
+        this.scaleY = actualHeight / this.fbHeight;
         /* Save the scaling factor so we can use this to adjust canvas
                pointer events intended for the unscaled viewer's framebuffer. */
-        this.scaleToFit = Math.min(scaleX, scaleY);
+        // this.scaleToFit = Math.min(scaleX, scaleY);
 
         /* Update canvas dimensions and center the element. */
-        var scaledWidth = this.scaleToFit * this.fbWidth;
-        var scaledHeight = this.scaleToFit * this.fbHeight;
+        var scaledWidth = this.scaleX * this.fbWidth;
+        var scaledHeight = this.scaleY * this.fbHeight;
         this.canvas[0].width = this.fbWidth;
         this.canvas[0].height = this.fbHeight;
-        var top = 0;
-        if (scaledHeight < this.canvas[0].height) {
-          top = (actualHeight - scaledHeight) / 2;
-        }
-        var left = 0;
-        if (scaledWidth < actualWidth) {
-          left = (actualWidth - scaledWidth) / 2;
-        }
-        // $('#framebuffer').css({
-        //     'position': 'absolute', 'top': top, 'left':  left,
-        //     'width': scaledWidth, 'height': scaledHeight,
-        // });
       },
 
       /* The following functions implement the FramebufferCallback interface. */
@@ -527,8 +516,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                scroll "ticks" */
       var desktop = window.app.desktopController;
       var self = desktop.mouseHandler;
-      var scaleX = 1.0 / desktop.scaleToFit;
-      var scaleY = 1.0 / desktop.scaleToFit;
+      // var scaleX = 1.0 / desktop.scaleToFit;
+      // var scaleY = 1.0 / desktop.scaleToFit;
+      var scaleX = 1.0 / desktop.scaleX;
+      var scaleY = 1.0 / desktop.scaleY;
       if (event.deltaMode == event.DOM_DELTA_LINE) {
         scaleX *= 12;
         scaleY *= 12;
@@ -559,8 +550,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     /* Convert mouse position to coordinate relative to the viewer's framebuffer. */
     updatePos: function(event) {
       var desktop = window.app.desktopController;
-      var scaleX = 1.0 / desktop.scaleToFit;
-      var scaleY = 1.0 / desktop.scaleToFit;
+      // var scaleX = 1.0 / desktop.scaleToFit;
+      // var scaleY = 1.0 / desktop.scaleToFit;
+      var scaleX = 1.0 / desktop.scaleX;
+      var scaleY = 1.0 / desktop.scaleY;
       var self = window.app.desktopController.mouseHandler;
       var offset = self.control.offset();
       self.buttonPos.x = scaleX * (event.pageX - offset.left);
