@@ -47,20 +47,20 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
      * LxygGgSrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRsVnXoDoue4Xqm
      */
     // var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRKDZ3LZZjs2Zrt7";
-    var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRDrzSmbSx5qLWfr";
+    var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRKDZ3LZZjs2Zrt7";
 
     /* Hard-code the Cloud password associated with this Cloud address, for example:
      * KMDgGgELSvAdvscgGfk2
      */
 
     // var localCloudPassword = "CNo12IBImk1Ki2Ib2hee";
-    var localCloudPassword = "CYOIG0-N.qMc3HshL9Ma";
+    var localCloudPassword = "CNo12IBImk1Ki2Ib2hee";
 
     /* Hard-code the Cloud address of the Server (peer) to connect to, for example:
      * LxyDgGgrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRydf9ZczNo13BcD
      */
     // var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
-    var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
+    var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRQ2XVPjdmrot5jn";
 
     /* The application instance. */
     window.App = {};
@@ -333,7 +333,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
            advantage of hardware acceleration routines provided in most browsers. */
         updateCanvas: function () {
             /* Obtain the useable dimensions for presenting the framebuffer. */
-            var actualWidth = $(window).width();
+            var actualWidth = (3/4) * $(window).width();
             var actualHeight = $(window).height() - $("#desktopBarFrame").height();
             $('#desktop').width(actualWidth);
             $('#desktop').height(actualHeight);
