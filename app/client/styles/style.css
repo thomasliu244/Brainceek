@@ -63,6 +63,15 @@ body
 
 /* Unique Components */
 
+#desktop{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
 nav#nav-bar{
   height: var(--nav-height);
   flex-direction:column;
@@ -101,6 +110,7 @@ aside#instruction-sidebar.close{
 /* hierarchical view components */
 
 #vnc-root{
+  position: relative;
   flex: 1;
   height: 100%;
 }

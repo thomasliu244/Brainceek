@@ -67,7 +67,6 @@ canvas
   background-color: white;
   position: absolute;
   margin: auto;
-  float: center;
   height: 60px;
   width: 100%;
   bottom: 0;
@@ -95,7 +94,6 @@ canvas
   position: relative;
   height: 200px;
   width: 80%;
-  float: center;
   top: 15%;
   left: 12.5%;
 }
@@ -104,7 +102,6 @@ canvas
 {
   position: relative;
   margin: auto;
-  float: center;
   width: 100%;
   height: 50px;
   top: 5px;
