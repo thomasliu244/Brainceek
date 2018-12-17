@@ -14,8 +14,10 @@ server(
   [
     get("/", () => render(config.files.entries.html)),
     get("/", ctx => {
-      console.log(`server is hosted onto 'localhost:${config.port}}'`);
       return "";
     })
   ]
 );
+
+console.log(`server is hosted at 'http://localhost:${config.port}'`);
+console.log(`press Ctrl+C to stop the process...`);
