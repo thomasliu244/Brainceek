@@ -48,7 +48,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   var resizeDebouncer = null;
 
   var resize = function(){
-    console.log("resized");
     if ($("#desktop").is(":visible")) {
       if (this.viewer) {
         try {
@@ -79,22 +78,29 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   * LxygGgSrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRsVnXoDoue4Xqm
   */
   // var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRKDZ3LZZjs2Zrt7";
-  var localCloudAddress =
-  "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRDrzSmbSx5qLWfr";
+  var localCloudAddress = window.localStorage.getItem("localCloudAddress") ;
+  if(localCloudAddress === null){
+    localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRDrzSmbSx5qLWfr";
+  }
 
   /* Hard-code the Cloud password associated with this Cloud address, for example:
   * KMDgGgELSvAdvscgGfk2
   */
 
   // var localCloudPassword = "CNo12IBImk1Ki2Ib2hee";
-  var localCloudPassword = "CYOIG0-N.qMc3HshL9Ma";
+  var localCloudPassword = window.localStorage.getItem("localCloudPassword");
+  if(localCloudPassword === null){
+    localCloudPassword = "CYOIG0-N.qMc3HshL9Ma";
+  }
 
   /* Hard-code the Cloud address of the Server (peer) to connect to, for example:
   * LxyDgGgrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRydf9ZczNo13BcD
   */
   // var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
-  var peerCloudAddress =
-  "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
+  var peerCloudAddress = window.localStorage.getItem("peerCloudAddress");
+  if(peerCloudAddress === null){
+    peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
+  }
 
   /* The application instance. */
   window.App = {};
@@ -158,7 +164,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         self.desktopController.hide();
         /* Show Status Dialog in Connect mode. */
         statusDialog.show(false);
-        statusDialog.setStatus("", "Click the button at top right corner to connect to a Server");
+        statusDialog.setStatus("", "Click the Button to Connect");
       },
 
       /* Show the viewer's framebuffer. */
@@ -170,6 +176,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       /* Create a VNC Cloud connection to the peer Cloud address. */
       connect: function() {
         var self = this;
+
+        localCloudAddress = $("#local-cloud-address-input").val();
+        localCloudPassword = $("#local-cloud-password-input").val();
+        peerCloudAddress = $("#server-cloud-address-input").val();
+
+
         if (
           !localCloudAddress ||
           !localCloudPassword ||
@@ -196,6 +208,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             /* We show the viewer's framebuffer now as we're expecting
             in-framebuffer connection prompts. */
             this.showViewerFb();
+
+
+            //connected successfully
+
+            window.localStorage.setItem("localCloudAddress",localCloudAddress);
+            window.localStorage.setItem("localCloudPassword",localCloudPassword);
+            window.localStorage.setItem("peerCloudAddress",peerCloudAddress);
+
+
           } catch (e) {
             alert(e);
             statusDialog.reportError(
@@ -385,7 +406,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         /* Obtain the useable dimensions for presenting the framebuffer. */
         var actualWidth = $("#framebuffer").width();
         var actualHeight = $("#framebuffer").height();
-        console.log(actualWidth,actualHeight);
         // $('#desktop').width(actualWidth);
         // $('#desktop').height(actualHeight);
 
@@ -809,14 +829,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         StatusDialog.prototype.show = function(restart) {
           var self = this;
           $("#container").toggle(true);
-          $("#nav-power-btn").unbind();
+          $(".connect-btn").unbind();
           if (restart) {
             /* Restart mode. Show the "Start Over" button - clicking this button
             will bring the Status Dialog back to Connect mode. */
-            $("#nav-power-btn").text("Retry");
-            $("#nav-power-btn").click(function() {
+            $(".connect-btn").text("Retry");
+            $(".connect-btn").click(function() {
               /* Setup new Viewer and desktop controller. */
-              $("#nav-power-btn").text("Connect");
+              $(".connect-btn").text("Connect");
               $('#connection-status-msg').text("");
               try {
                 window.app.setupDesktopViewer();
@@ -827,11 +847,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
           } else {
             /* Connect mode. Show the "Connect" button - clicking this button
             will initiate a Cloud connection. */
-            $("#nav-power-btn").unbind();
-            $("#nav-power-btn").click(function() {
-              $("#nav-power-btn").text("Disconnect");
-              $("#nav-power-btn").unbind();
-              $("#nav-power-btn").click(function() {
+            $(".connect-btn").unbind();
+            $(".connect-btn").click(function() {
+              $(".connect-btn").text("Disconnect");
+              $(".connect-btn").unbind();
+              $(".connect-btn").click(function() {
                 window.app.disconnect();
               });
               self.connectClicked();
@@ -871,5 +891,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         $(document).ready(function() {
           window.statusDialog = new StatusDialog();
           window.app = new window.App.Controller();
+
+          //connectivity settings logic
+          $("#local-cloud-address-input").val(localCloudAddress);
+          $("#local-cloud-password-input").val(localCloudPassword);
+          $("#server-cloud-address-input").val(peerCloudAddress);
+
+
         });
       })(jQuery);

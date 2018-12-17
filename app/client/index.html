@@ -49,7 +49,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       <div id="nav-title">Brainceek</div>
       <div id="nav-buttons" class="container center">
         <div class="center-item">
-          <button id="nav-power-btn" class="status-dlg-button">Connect</button>
+          <button id="nav-power-btn" class="connect-btn status-dlg-button">Connect</button>
         </div>
         <div class="center-item">
           <button id="nav-instruction-menu" class="status-dlg-button">Instructions</button>
@@ -75,20 +75,38 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       </div>
 
       <!-- Status Dialog UI -->
-      <div id="mainView" class="expand">
+      <section iv id="mainView" class="expand">
         <div class="container center">
           <div class="center-item">
-            <div id="connection-status">
+            <section id="connect-page">
+              <h3>Connectivity Settings</h3>
+              <div class="input-container">
+                <div class="input-title">Viewer/local Cloud Address</div>
+                <input id="local-cloud-address-input" type="text" placeholder="Input Address"/>
+              </div>
+              <div class="input-container">
+                <div class="input-title">Viewer/local Cloud Password</div>
+                <input id="local-cloud-password-input" type="text" placeholder="Input Password"/>
+              </div>
+              <div class="input-container">
+                <div class="input-title">Peer/server Cloud Address</div>
+                <input id="server-cloud-address-input" type="text" placeholder="Input Address"/>
+              </div>
+              <br/>
+              <br/>
+              <button id="nav-power-btn" class="connect-btn status-dlg-button">Connect</button>
+            </section>
+            <section id="connection-status">
               <div id="statusDialog">
                 <div id="statusFrame">
                   <p id="statusTitle"></p>
                   <p id="statusContent"></p>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </section>
   <aside id="instruction-sidebar">
