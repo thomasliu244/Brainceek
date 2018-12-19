@@ -4,55 +4,67 @@
 <head>
   <meta charset="utf-8" />
   <!--
-Copyright (C) 2016-2017 RealVNC Limited. All rights reserved.
+  Copyright (C) 2016-2017 RealVNC Limited. All rights reserved.
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
 
-1. Redistributions of source code must retain the above copyright notice, this
-list of conditions and the following disclaimer.
+  1. Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
 
-2. Redistributions in binary form must reproduce the above copyright notice,
-this list of conditions and the following disclaimer in the documentation
-and/or other materials provided with the distribution.
+  2. Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
 
-3. Neither the name of the copyright holder nor the names of its contributors
-may be used to endorse or promote products derived from this software without
-specific prior written permission.
+  3. Neither the name of the copyright holder nor the names of its contributors
+  may be used to endorse or promote products derived from this software without
+  specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <!-- VNC JavaScript SDK -->
-  <script src="./scripts/vncsdk.js"></script>
-  <!-- Sample app -->
-  <link rel="stylesheet" href="./styles/viewer.css">
-  <link rel="stylesheet" href="./styles/style.css">
-  <script src="./scripts/viewer.js"></script>
-  <script src="./scripts/index.js"></script>
-  <title>VNC SDK - basicViewerHTML5</title>
+<link rel="shortcut icon" type="image/png" href="./img/brainceek_favicon.png"/>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- VNC JavaScript SDK -->
+<script src="./scripts/vncsdk.js"></script>
+<!-- fonts -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link rel="stylesheet" href="./fonts/fonts.min.css">
+<!-- Sample app -->
+<link rel="stylesheet" href="./styles/viewer.css">
+<link rel="stylesheet" href="./styles/style.css">
+<script src="./scripts/viewer.js"></script>
+<script src="./scripts/index.js"></script>
+<title>VNC SDK - basicViewerHTML5</title>
 </head>
 
 <body>
   <nav id="nav-bar">
     <div id="nav-bar-container" class="container padding flex">
-      <div id="nav-title">Brainceek</div>
+      <div id="nav-title-container">
+        <div class="center">
+          <img height="40px" src="./img/brainceek_logo_white.png" alt=""><div id="nav-title" class="vertical-center-item">BrainCeek</div>
+        </div>
+      </div>
       <div id="nav-buttons" class="container center">
         <div class="center-item">
-          <button id="nav-power-btn" class="connect-btn status-dlg-button">Connect</button>
+          <div class="button disabled" id="disconnect-btn" >
+            <i class="fas fa-power-off"></i>
+          </div>
         </div>
         <div class="center-item">
-          <button id="nav-instruction-menu" class="status-dlg-button">Instructions</button>
+          <div class="button" id="nav-instruction-menu">
+            <i class="fas fa-bars fa-lg"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -80,7 +92,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
           <div class="center-item">
             <section class="card center" id="connect-page">
               <div class="center-item">
-                <h3>Connectivity Settings</h3>
+                <h3 style="padding-top:30px">Welcome. Please Connect To Your Simulated Machine</h3>
                 <div class="input-container">
                   <div class="input-title">Viewer/local Cloud Address</div>
                   <input id="local-cloud-address-input" type="text" placeholder="Input Address"/>
@@ -95,7 +107,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                 </div>
                 <br/>
                 <br/>
-                <button id="nav-power-btn" class="connect-btn status-dlg-button">Connect</button>
+                <div id="connect-btn" class="button border">Connect</div>
                 <section id="connection-status">
                   <div id="statusDialog">
                     <div id="statusFrame">
@@ -113,7 +125,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   </section>
   <aside id="instruction-sidebar">
     <div class="container padding overflow">
-      <h1> Brainceek </h1>
+      <h1> Instructions </h1>
       <h2> Get a Cat First! </h2>
       <img width="200px" height="120px" src="https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></img>
       <p>1. Small kitty warm kitty little balls of fur do i like standing on litter cuz i sits when i have spaces, my cat buddies have no litter i live in luxury cat life a nice warm laptop for me to sit on for carefully drink from water glass and then spill it everywhere and proceed to lick the puddle groom forever, stretch tongue and leave it slightly out, blep. Reward the chosen human with a slow blink more napping, more napping all the napping is exhausting, fall asleep upside-down i heard this rumor where the humans are our owners, pfft, what do they know?! so lick yarn hanging out of own butt. Pee in the shoe cats secretly make all the worlds muffins but brown cats with pink ears leave fur on owners clothes, so pee in the shoe for stare at the wall, play with food and get confused by dust. Rub face on everything use lap as chair. Annoy kitten brother with poking eat owner's food or lick sellotape refuse to come home when humans are going to bed; stay out all night then yowl like i am dying at 4am. Always hungry eat half my food and ask for more but destroy couch as revenge but eat the fat cats food and chase red laser dot.

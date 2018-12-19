@@ -164,7 +164,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         self.desktopController.hide();
         /* Show Status Dialog in Connect mode. */
         statusDialog.show(false);
-        statusDialog.setStatus("", "Click the Button to Connect");
+        statusDialog.setStatus("", "");
       },
 
       /* Show the viewer's framebuffer. */
@@ -829,14 +829,21 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         StatusDialog.prototype.show = function(restart) {
           var self = this;
           $("#container").toggle(true);
-          $(".connect-btn").unbind();
+
+          var connectBtn = $("#connect-btn");
+          var disconnectBtn = $("#disconnect-btn");
+
+          connectBtn.unbind();
+          disconnectBtn.unbind();
+
+
           if (restart) {
             /* Restart mode. Show the "Start Over" button - clicking this button
             will bring the Status Dialog back to Connect mode. */
-            $(".connect-btn").text("Retry");
-            $(".connect-btn").click(function() {
+            connectBtn.text("Retry");
+            connectBtn.click(function() {
               /* Setup new Viewer and desktop controller. */
-              $(".connect-btn").text("Connect");
+              connectBtn.text("Connect");
               $('#connection-status-msg').text("");
               try {
                 window.app.setupDesktopViewer();
@@ -847,11 +854,14 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
           } else {
             /* Connect mode. Show the "Connect" button - clicking this button
             will initiate a Cloud connection. */
-            $(".connect-btn").unbind();
-            $(".connect-btn").click(function() {
-              $(".connect-btn").text("Disconnect");
-              $(".connect-btn").unbind();
-              $(".connect-btn").click(function() {
+            disconnectBtn.addClass("disabled");
+            connectBtn.unbind();
+            connectBtn.click(function() {
+              // connectBtn.text("Disconnect");
+              disconnectBtn.removeClass("disabled");
+              connectBtn.unbind();
+              disconnectBtn.click(function() {
+                disconnectBtn.addClass("disabled");
                 window.app.disconnect();
               });
               self.connectClicked();
