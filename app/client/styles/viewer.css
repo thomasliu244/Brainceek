@@ -91,11 +91,9 @@ canvas
 
 #statusDialog
 {
+  margin: 0 auto;
   position: relative;
-  height: 200px;
   width: 80%;
-  top: 15%;
-  left: 12.5%;
 }
 
 #statusFrame
