@@ -131,52 +131,48 @@
       
       <p>1. Within Capital IQ, click the screening button to start looking for your precedent transactions
       </p>
-      <img id="myImg" src="./img/step1_1.png"></img>
+      <img class="myImg" src="./img/step1_1.png"></img>
 
       <p>2. Select Transactions, since you are trying to filter and find the right M&A transactions to compare with a potential sale of a retail company (i.e. Nike)
       </p>
-      <img src="./img/step1_2.png"></img>
+      <img class="myImg" src="./img/step1_2.png"></img>
 
       <p>3. The first filter we want to use is dates – we want relatively recent deals and not ones from 1997
       </p>
-      <img src="./img/step1_3.png"></img>
+      <img class="myImg" src="./img/step1_3.png"></img>
 
       
       <p>4. Select “Announced Date”, adjust to “11/28/16 to 11/28/18”, and click “Add Criteria”
       </p>
-      <img src="./img/step1_4.png"></img>
+      <img class="myImg" src="./img/step1_4.png"></img>
 
       <p>5. Moving on to the second filter, since the size of the deal also matters (and Capital IQ has many erroneous deals below $10mm), click “Valuations” to start filtering for those”
       </p>
-      <img src="./img/step1_5.png"></img>
+      <img class="myImg" src="./img/step1_5.png"></img>
 
       <p>6. After highlighting “Transaction Valuations / Multiples”, click on “Total Transaction Value.” Make sure to input “10” in the value box and click “Add Criteria”
       </p>
-      <img src="./img/step1_6.png"></img>
+      <img class="myImg" src="./img/step1_6.png"></img>
 
       <p>8. Be sure to select United States of America, and <u>not United States and Canada</u>. Then click on “Add Criteria”
       </p>
-      <img src="./img/step1_8.png"></img>
+      <img class="myImg" src="./img/step1_8.png"></img>
 
       <p>9. Finally, select Industry Classifications to further filter for the deals which fit into Nike’s current industry
       </p>
-      <img src="./img/step1_9.png"></img>
+      <img class="myImg" src="./img/step1_9.png"></img>
 
       <p>10. After clicking on Apparel and Footwear, be sure to click “Add Criteria”
       </p>
-      <img src="./img/step1_10.png"></img>
+      <img class="myImg" src="./img/step1_10.png"></img>
 
       <p>11. Click on “View Results” to reveal the 24 deals which Capital IQ has generated
       </p>
-      <img src="./img/step1_11.png"></img>
+      <img class="myImg" src="./img/step1_11.png"></img>
 
       <p>12. Click on “Customize Display Columns” to adjust the outputs and fields shown for each specific deal
       </p>
-      <img src="./img/step1_12.png"></img>
-
-
-
-
+      <img class="myImg" src="./img/step1_12.png"></img>
 
     </div>
   </aside>
@@ -196,14 +192,15 @@
     var modal = document.getElementById('myModal');
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById('myImg');
+    var imgs = document.getElementsByClassName('myImg');
     var modalImg = document.getElementById("img01");
     var captionText = document.getElementById("caption");
-    img.onclick = function(){
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      captionText.innerHTML = this.alt;
-    }
+    Array.prototype.forEach.call(imgs, function(img) {
+      img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;     
+    }});
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
