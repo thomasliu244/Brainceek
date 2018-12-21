@@ -195,6 +195,10 @@ aside#instruction-sidebar h2{
   font-size: 20px;
 }
 
+aside#instruction-sidebar img{
+  width: 95%;
+}
+
 aside#instruction-sidebar .container{
   min-width: 300px;
 }
@@ -284,9 +288,9 @@ main#root{
 /* Add Animation */
 .modal-content, #caption {  
   -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
+  -webkit-animation-duration: 0.2s;
   animation-name: zoom;
-  animation-duration: 0.6s;
+  animation-duration: 0.2s;
 }
 
 @-webkit-keyframes zoom {
