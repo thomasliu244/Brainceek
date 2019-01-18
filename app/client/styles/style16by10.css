@@ -1,7 +1,7 @@
 :root{
   --border-color: #bbbbbb;
   --pad: 5px;
-  --nav-height: 50px;
+  --nav-height: 5.5%;
   --bg-color: rgba(67,166,255,0.1);
   --card-color: #fefefe;
   --green-theme: #60C086;
@@ -78,7 +78,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .center .center-item{
   display: table-cell;
-  text-align: right;
+  text-align: center;
   vertical-align: middle;
 }
 .center .vertical-center-item{
@@ -141,6 +141,7 @@ nav#nav-bar{
   /*background: rgb(88,97,163);*/
   background: white;
   /*background: linear-gradient(150deg,rgba(96,192,134,.3) 20%,rgba(67,166,224,1) 66%, rgba(88,97,163,1) 100%);*/
+  box-shadow: inset 0px 0px 0px 2px rgba(67,166,224,0.5);
 }
 
 nav#nav-bar #nav-bar-container{
@@ -184,25 +185,56 @@ aside#instruction-sidebar {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
   transition: width 0.3s ease-in-out 0s;
-  width: 25vmax;
-  border-left: 1px solid var(--border-color);
+  width: 21.875vmax;
+  /*change for 16by10*/
   overflow-x:hidden;
 }
 
-aside#instruction-sidebar h1{
-  font-size: 30px;
+aside#instruction-sidebar h1,h2,p,img,iframe{
+  color: #383D3F;
+  margin-left: 13px;
+}
+
+aside#instruction-sidebar iframe{
+  width: 95%;
+  height: 280px;
 }
 
 aside#instruction-sidebar h2{
   font-size: 20px;
 }
 
+aside#instruction-sidebar p{
+}
+
+aside#instruction-sidebar h1{
+  font-size: 30px;
+  
+}
+
+aside#instruction-sidebar h2{
+  font-size: 20px;
+  
+}
+
+aside#instruction-sidebar p{
+
+}
+
+#Instructions{
+  box-shadow: inset 5px 0px 0px 0px #107895;
+  background-color: #F1F3F4;
+}
+
+
 #Instructions img{
   width: 95%;
+  
 }
 
 aside#instruction-sidebar .container{
-  min-width: 300px;
+  /*min-width: 300px;*/
+  height: 94.5%;
 }
 aside#instruction-sidebar.close{
   width: 0;

@@ -77,29 +77,29 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   /* For Cloud connections, hard-code the Cloud address for the Viewer, for example:
   * LxygGgSrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRsVnXoDoue4Xqm
   */
-  // var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRKDZ3LZZjs2Zrt7";
-  var localCloudAddress = window.localStorage.getItem("localCloudAddress") ;
+  var localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPX6dctKb6WqCb6Kf.devEX1Sg2Txs1CgVuW4.3DjPReqdRe7swYnvJnX";
+  // var localCloudAddress = window.localStorage.getItem("localCloudAddress") ;
   if(localCloudAddress === null){
-    localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPRDrzSmbSx5qLWfr";
+    localCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPX6dctKb6WqCb6Kf.devEX1Sg2Txs1CgVuW4.3DjPReqdRe7swYnvJnX";
   }
 
   /* Hard-code the Cloud password associated with this Cloud address, for example:
   * KMDgGgELSvAdvscgGfk2
   */
 
-  // var localCloudPassword = "CNo12IBImk1Ki2Ib2hee";
-  var localCloudPassword = window.localStorage.getItem("localCloudPassword");
+  var localCloudPassword = "Uc9oINESZKDPx-R-xDje";
+  // var localCloudPassword = window.localStorage.getItem("localCloudPassword");
   if(localCloudPassword === null){
-    localCloudPassword = "CYOIG0-N.qMc3HshL9Ma";
+    localCloudPassword = "Uc9oINESZKDPx-R-xDje";
   }
 
   /* Hard-code the Cloud address of the Server (peer) to connect to, for example:
   * LxyDgGgrhXQFiLj5M4M.LxyPXzA9sGLkB6pCtJv.devEX1Sg2Txs1CgVuW4.LxyPRydf9ZczNo13BcD
   */
-  // var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
-  var peerCloudAddress = window.localStorage.getItem("peerCloudAddress");
+  var peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPX6dctKb6WqCb6Kf.devEX1Sg2Txs1CgVuW4.3DjPR3kKc1cvyiYSj72";
+  // var peerCloudAddress = window.localStorage.getItem("peerCloudAddress");
   if(peerCloudAddress === null){
-    peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPXhVccjFQFR8jRQQ.devEX1Sg2Txs1CgVuW4.3DjPR8mUwMKeYk3nF8d";
+    peerCloudAddress = "3DjDADvEQwNoQU4DetT.3DjPX6dctKb6WqCb6Kf.devEX1Sg2Txs1CgVuW4.3DjPR3kKc1cvyiYSj72";
   }
 
   /* The application instance. */
@@ -177,9 +177,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       connect: function() {
         var self = this;
 
-        localCloudAddress = $("#local-cloud-address-input").val();
-        localCloudPassword = $("#local-cloud-password-input").val();
-        peerCloudAddress = $("#server-cloud-address-input").val();
+        // localCloudAddress = $("#local-cloud-address-input").val();
+        // localCloudPassword = $("#local-cloud-password-input").val();
+        // peerCloudAddress = $("#server-cloud-address-input").val();
 
 
         if (
@@ -212,9 +212,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
             //connected successfully
 
-            window.localStorage.setItem("localCloudAddress",localCloudAddress);
-            window.localStorage.setItem("localCloudPassword",localCloudPassword);
-            window.localStorage.setItem("peerCloudAddress",peerCloudAddress);
+            // window.localStorage.setItem("localCloudAddress",localCloudAddress);
+            // window.localStorage.setItem("localCloudPassword",localCloudPassword);
+            // window.localStorage.setItem("peerCloudAddress",peerCloudAddress);
 
 
           } catch (e) {
