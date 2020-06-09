@@ -1,16 +1,3 @@
 # Brainceek
 
-##Developing:
-
-```
-npm run dev
-```
-then go to localhost:8080
-
-edit files directly in [./app](./app) folder
-
-##Production:
-
-```
-npm start
-```
+First iteration on the BrainCeek web platform prototype. Built in 2018 as a front-end only site integrated with VNC viewer.
